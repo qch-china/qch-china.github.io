@@ -1,4 +1,4 @@
 baseURL = 'https://qch-china.github.io/'
-languageCode = 'cn-zh'
+defaultContentLanguage = "zh"
 title = 'Qch的博客空间'
 theme = 'hugo-theme-diary'

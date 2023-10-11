@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://qch-china.github.io/categories/</loc>
+    <lastmod>2023-10-08T17:16:19+08:00</lastmod>
+  </url><url>
     <loc>https://qch-china.github.io/posts/</loc>
     <lastmod>2023-10-08T17:16:19+08:00</lastmod>
   </url><url>
@@ -11,12 +14,13 @@
     <loc>https://qch-china.github.io/tags/</loc>
     <lastmod>2023-10-08T17:16:19+08:00</lastmod>
   </url><url>
+    <loc>https://qch-china.github.io/posts/2023-10/01-first-post/</loc>
+    <lastmod>2023-10-08T17:16:19+08:00</lastmod>
+  </url><url>
     <loc>https://qch-china.github.io/tags/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F/</loc>
     <lastmod>2023-10-08T17:16:19+08:00</lastmod>
   </url><url>
-    <loc>https://qch-china.github.io/posts/01-first-post/</loc>
+    <loc>https://qch-china.github.io/categories/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2023-10-08T17:16:19+08:00</lastmod>
-  </url><url>
-    <loc>https://qch-china.github.io/categories/</loc>
   </url>
 </urlset>
