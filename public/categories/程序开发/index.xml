@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Qch的博客空间</title>
-    <link>https://qch-china.github.io/posts/</link>
-    <description>Recent content in Posts on Qch的博客空间</description>
+    <title>程序开发 on Qch的博客空间</title>
+    <link>https://qch-china.github.io/categories/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/</link>
+    <description>Recent content in 程序开发 on Qch的博客空间</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 12 Oct 2023 16:05:12 +0800</lastBuildDate><atom:link href="https://qch-china.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Oct 2023 16:05:12 +0800</lastBuildDate><atom:link href="https://qch-china.github.io/categories/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Golang Slice的过滤/聚合/映射函数</title>
       <link>https://qch-china.github.io/posts/2023-10/01-first-post/</link>
@@ -17,17 +17,6 @@
 下面的代码展示了如何实现Golang Slice的过滤/聚合/映射函数
 代码很简单，就不多做解释了
 二：函数与调用方式 package main import ( &amp;#34;fmt&amp;#34; ) // SliceFilter 数组过滤 func SliceFilter[T any](list []T, filterFun func(T) bool) []T { index := 0 for _, item := range list { ok := filterFun(item) if ok { list[index] = item index++ } } return list[:index] } // SliceReduce 数组聚合 func SliceReduce[T any, M any](list []T, reduceFun func(M, T) M, initValue M) M { curr := initValue for _, item := range list { curr = reduceFun(curr, item) } return curr } // SliceMap 数组遍历执行mapFun，然后生成新的数组 func SliceMap[T any, R any](list []T, mapFun func(T) R) []R { result := make([]R, len(list)) for index, item := range list { result[index] = mapFun(item) } return result } func main() { // 求出数组中的偶数 filterSlice := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10} filterResult := SliceFilter(filterSlice, func(num int) bool { return num%2 == 0 }) fmt.</description>
-    </item>
-    
-    <item>
-      <title>第一篇文章</title>
-      <link>https://qch-china.github.io/posts/2023-10/02-slice-function/</link>
-      <pubDate>Sun, 08 Oct 2023 17:16:19 +0800</pubDate>
-      
-      <guid>https://qch-china.github.io/posts/2023-10/02-slice-function/</guid>
-      <description>新的开始 第一篇文章，一个好开始
-希望自己能坚持，养成经常写博客的习惯
-共勉 </description>
     </item>
     
   </channel>

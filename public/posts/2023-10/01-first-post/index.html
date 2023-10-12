@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head>
-<title>第一篇文章</title>
+<title>Golang Slice的过滤/聚合/映射函数</title>
 
 
 
@@ -10,7 +10,7 @@
 <meta name="google-site-verification" content="">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 <meta content="telephone=no" name="format-detection">
-<meta name="description" content="本空间的第一篇文篇，一个美好的开始">
+<meta name="description" content="Golang Slice的过滤/聚合/映射函数">
 <meta name="renderer" content="webkit">
 <meta name="theme-color" content="#ffffff">
 
@@ -101,8 +101,8 @@
 						
 						
 							<li>
-								<a href="#%e6%96%b0%e7%9a%84%e5%bc%80%e5%a7%8b" class="nav-新的开始">
-									新的开始
+								<a href="#%e4%b8%80%e5%89%8d%e8%a8%80" class="nav-一前言">
+									一：前言
 								</a>
 							</li>
 						
@@ -119,8 +119,26 @@
 						
 						
 							<li>
-								<a href="#%e5%85%b1%e5%8b%89" class="nav-共勉">
-									共勉
+								<a href="#%e4%ba%8c%e5%87%bd%e6%95%b0%e4%b8%8e%e8%b0%83%e7%94%a8%e6%96%b9%e5%bc%8f" class="nav-二函数与调用方式">
+									二：函数与调用方式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%89%e5%a4%87%e6%b3%a8" class="nav-三备注">
+									三：备注
 								</a>
 							</li>
 						
@@ -181,29 +199,29 @@
                 
             >
                 <div class="post-title">
-                    第一篇文章
+                    Golang Slice的过滤/聚合/映射函数
                     
                     <div class="post-subtitle">
-                        本空间的第一篇文篇，一个美好的开始
+                        Golang Slice的过滤/聚合/映射函数
                     </div>
                     
                     <div class="post-meta">
                         
                         <time itemprop="datePublished">
-                            2023-10-08 17:16
+                            2023-10-12 16:05
                         </time>
                         
 
                         
                             <i class="material-icons" style="">folder</i>
-                                <a href="/categories/%E6%9D%82%E8%B0%88">杂谈</a>
+                                <a href="/categories/%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91">程序开发</a>
                                 &nbsp;
                         
 
                         
                             <i class="material-icons" style="">label</i>
                             
-                                <a href="/tags/%E4%BA%BA%E7%94%9F%E6%84%9F%E6%82%9F">人生感悟</a>
+                                <a href="/tags/golang">golang</a>
                                 &nbsp;
                             
                         
@@ -216,15 +234,76 @@
                 
                 <div class="post-body" v-pre>
                 
-                    <h2 id="新的开始">新的开始</h2>
-<p>第一篇文章，一个好开始</p>
-<p>希望自己能坚持，养成经常写博客的习惯</p>
-<h2 id="共勉">共勉</h2>
-<p><img src="images/persist_in.jpg" alt="avatar"></p>
+                    <h2 id="一前言">一：前言</h2>
+<p>自从Golang 1.18支持泛型以来，编写泛型算法就变得方便了</p>
+<p>下面的代码展示了如何实现Golang Slice的过滤/聚合/映射函数</p>
+<p>代码很简单，就不多做解释了</p>
+<h2 id="二函数与调用方式">二：函数与调用方式</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// SliceFilter 数组过滤
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">SliceFilter</span>[<span style="color:#a6e22e">T</span> <span style="color:#a6e22e">any</span>](<span style="color:#a6e22e">list</span> []<span style="color:#a6e22e">T</span>, <span style="color:#a6e22e">filterFun</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">T</span>) <span style="color:#66d9ef">bool</span>) []<span style="color:#a6e22e">T</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">index</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">item</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">list</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">filterFun</span>(<span style="color:#a6e22e">item</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">ok</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">list</span>[<span style="color:#a6e22e">index</span>] = <span style="color:#a6e22e">item</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">index</span><span style="color:#f92672">++</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">list</span>[:<span style="color:#a6e22e">index</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// SliceReduce 数组聚合
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">SliceReduce</span>[<span style="color:#a6e22e">T</span> <span style="color:#a6e22e">any</span>, <span style="color:#a6e22e">M</span> <span style="color:#a6e22e">any</span>](<span style="color:#a6e22e">list</span> []<span style="color:#a6e22e">T</span>, <span style="color:#a6e22e">reduceFun</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">M</span>, <span style="color:#a6e22e">T</span>) <span style="color:#a6e22e">M</span>, <span style="color:#a6e22e">initValue</span> <span style="color:#a6e22e">M</span>) <span style="color:#a6e22e">M</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">curr</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">initValue</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">item</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">list</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">curr</span> = <span style="color:#a6e22e">reduceFun</span>(<span style="color:#a6e22e">curr</span>, <span style="color:#a6e22e">item</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">curr</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// SliceMap 数组遍历执行mapFun，然后生成新的数组
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">SliceMap</span>[<span style="color:#a6e22e">T</span> <span style="color:#a6e22e">any</span>, <span style="color:#a6e22e">R</span> <span style="color:#a6e22e">any</span>](<span style="color:#a6e22e">list</span> []<span style="color:#a6e22e">T</span>, <span style="color:#a6e22e">mapFun</span> <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">T</span>) <span style="color:#a6e22e">R</span>) []<span style="color:#a6e22e">R</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> make([]<span style="color:#a6e22e">R</span>, len(<span style="color:#a6e22e">list</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">item</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">list</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">result</span>[<span style="color:#a6e22e">index</span>] = <span style="color:#a6e22e">mapFun</span>(<span style="color:#a6e22e">item</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 求出数组中的偶数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">filterSlice</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">filterResult</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">SliceFilter</span>(<span style="color:#a6e22e">filterSlice</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">num</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num</span><span style="color:#f92672">%</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;SliceFilter: %v\n&#34;</span>, <span style="color:#a6e22e">filterResult</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 数组求和
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">reduceSlice</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">reduceResult</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">SliceReduce</span>(<span style="color:#a6e22e">reduceSlice</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">curr</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">num</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">curr</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num</span>
+</span></span><span style="display:flex;"><span>	}, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;reduceResult: %v\n&#34;</span>, <span style="color:#a6e22e">reduceResult</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 数组元素*2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">mapSlice</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">mapResult</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">SliceMap</span>(<span style="color:#a6e22e">mapSlice</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">num</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;mapResult: %v\n&#34;</span>, <span style="color:#a6e22e">mapResult</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="三备注">三：备注</h2>
+<p>本函数的实现没有考虑处理函数中出错的可能性，如果有error的话请自行加上（业务上这种情况比较少见，加入error处理反而会添加负担，所以就没有在这个版本中加入）</p>
 
                     
                     <HR width="100%" id="EOF">
-		    <p style="color:#777;">最后修改于 2023-10-08</p>
+		    <p style="color:#777;">最后修改于 2023-10-12</p>
                     
                 </div>
             </div>
@@ -239,8 +318,8 @@
                 
                 
                 
-                <a class="older-posts">
-			上回<br>这是最旧的文章了。
+                <a class="older-posts" href="/posts/2023-10/02-slice-function/">
+			上回<br>第一篇文章
                 </a>
                 
             </nav>
@@ -320,8 +399,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e6%96%b0%e7%9a%84%e5%bc%80%e5%a7%8b" class="nav-新的开始">
-									新的开始
+								<a href="#%e4%b8%80%e5%89%8d%e8%a8%80" class="nav-一前言">
+									一：前言
 								</a>
 							</li>
 						
@@ -338,8 +417,26 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e5%85%b1%e5%8b%89" class="nav-共勉">
-									共勉
+								<a href="#%e4%ba%8c%e5%87%bd%e6%95%b0%e4%b8%8e%e8%b0%83%e7%94%a8%e6%96%b9%e5%bc%8f" class="nav-二函数与调用方式">
+									二：函数与调用方式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%b8%89%e5%a4%87%e6%b3%a8" class="nav-三备注">
+									三：备注
 								</a>
 							</li>
 						
