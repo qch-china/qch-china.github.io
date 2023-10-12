@@ -20,8 +20,7 @@
         <guid>https://qch-china.github.io/posts/2023-10/01-first-post/</guid>
         <description>Qch的博客空间 https://qch-china.github.io/posts/2023-10/01-first-post/ -&lt;h2 id=&#34;一前言&#34;&gt;一：前言&lt;/h2&gt;
 &lt;p&gt;自从Golang 1.18支持泛型以来，编写泛型算法就变得方便了&lt;/p&gt;
-&lt;p&gt;下面的代码展示了如何实现Golang Slice的过滤/聚合/映射函数&lt;/p&gt;
-&lt;p&gt;代码很简单，就不多做解释了&lt;/p&gt;
+&lt;p&gt;下面的代码展示了如何实现Golang Slice的过滤/聚合/映射函数。代码很简单，就不多做解释了&lt;/p&gt;
 &lt;h2 id=&#34;二函数与调用方式&#34;&gt;二：函数与调用方式&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -83,7 +82,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mapResult: %v\n&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;mapResult&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;三备注&#34;&gt;三：备注&lt;/h2&gt;
-&lt;p&gt;本函数的实现没有考虑处理函数中出错的可能性，如果有error的话请自行加上（业务上这种情况比较少见，加入error处理反而会添加负担，所以就没有在这个版本中加入）&lt;/p&gt;
+&lt;p&gt;本函数的实现没有考虑处理函数中出错的可能性，如果处理函数需要返回error的话请自行加上（业务上这种情况比较少见，加入error处理反而会添加负担，所以就没有在这个版本中加入）&lt;/p&gt;
 - https://qch-china.github.io/posts/2023-10/01-first-post/ - </description>
         </item>
     

@@ -236,8 +236,7 @@
                 
                     <h2 id="一前言">一：前言</h2>
 <p>自从Golang 1.18支持泛型以来，编写泛型算法就变得方便了</p>
-<p>下面的代码展示了如何实现Golang Slice的过滤/聚合/映射函数</p>
-<p>代码很简单，就不多做解释了</p>
+<p>下面的代码展示了如何实现Golang Slice的过滤/聚合/映射函数。代码很简单，就不多做解释了</p>
 <h2 id="二函数与调用方式">二：函数与调用方式</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
@@ -299,7 +298,7 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;mapResult: %v\n&#34;</span>, <span style="color:#a6e22e">mapResult</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="三备注">三：备注</h2>
-<p>本函数的实现没有考虑处理函数中出错的可能性，如果有error的话请自行加上（业务上这种情况比较少见，加入error处理反而会添加负担，所以就没有在这个版本中加入）</p>
+<p>本函数的实现没有考虑处理函数中出错的可能性，如果处理函数需要返回error的话请自行加上（业务上这种情况比较少见，加入error处理反而会添加负担，所以就没有在这个版本中加入）</p>
 
                     
                     <HR width="100%" id="EOF">

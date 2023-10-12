@@ -14,8 +14,7 @@
       
       <guid>https://qch-china.github.io/posts/2023-10/01-first-post/</guid>
       <description>一：前言 自从Golang 1.18支持泛型以来，编写泛型算法就变得方便了
-下面的代码展示了如何实现Golang Slice的过滤/聚合/映射函数
-代码很简单，就不多做解释了
+下面的代码展示了如何实现Golang Slice的过滤/聚合/映射函数。代码很简单，就不多做解释了
 二：函数与调用方式 package main import ( &amp;#34;fmt&amp;#34; ) // SliceFilter 数组过滤 func SliceFilter[T any](list []T, filterFun func(T) bool) []T { index := 0 for _, item := range list { ok := filterFun(item) if ok { list[index] = item index++ } } return list[:index] } // SliceReduce 数组聚合 func SliceReduce[T any, M any](list []T, reduceFun func(M, T) M, initValue M) M { curr := initValue for _, item := range list { curr = reduceFun(curr, item) } return curr } // SliceMap 数组遍历执行mapFun，然后生成新的数组 func SliceMap[T any, R any](list []T, mapFun func(T) R) []R { result := make([]R, len(list)) for index, item := range list { result[index] = mapFun(item) } return result } func main() { // 求出数组中的偶数 filterSlice := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10} filterResult := SliceFilter(filterSlice, func(num int) bool { return num%2 == 0 }) fmt.</description>
     </item>
     
