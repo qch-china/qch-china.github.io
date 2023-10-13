@@ -14,11 +14,11 @@
     
         <item>
         <title>Golang Slice的过滤/聚合/映射函数</title>
-        <link>https://qch-china.github.io/posts/2023-10/01-first-post/</link>
+        <link>https://qch-china.github.io/posts/2023-10/02-slice_func/</link>
         <pubDate>Thu, 12 Oct 2023 16:05:12 +0800</pubDate>
         
-        <guid>https://qch-china.github.io/posts/2023-10/01-first-post/</guid>
-        <description>Qch的博客空间 https://qch-china.github.io/posts/2023-10/01-first-post/ -&lt;h2 id=&#34;一前言&#34;&gt;一：前言&lt;/h2&gt;
+        <guid>https://qch-china.github.io/posts/2023-10/02-slice_func/</guid>
+        <description>Qch的博客空间 https://qch-china.github.io/posts/2023-10/02-slice_func/ -&lt;h2 id=&#34;一前言&#34;&gt;一：前言&lt;/h2&gt;
 &lt;p&gt;自从Golang 1.18支持泛型以来，编写泛型算法就变得方便了&lt;/p&gt;
 &lt;p&gt;下面的代码展示了如何实现Golang Slice的过滤/聚合/映射函数。代码很简单，就不多做解释了&lt;/p&gt;
 &lt;h2 id=&#34;二函数与调用方式&#34;&gt;二：函数与调用方式&lt;/h2&gt;
@@ -83,23 +83,23 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;三备注&#34;&gt;三：备注&lt;/h2&gt;
 &lt;p&gt;本函数的实现没有考虑处理函数中出错的可能性，如果处理函数需要返回error的话请自行加上（业务上这种情况比较少见，加入error处理反而会添加负担，所以就没有在这个版本中加入）&lt;/p&gt;
-- https://qch-china.github.io/posts/2023-10/01-first-post/ - </description>
+- https://qch-china.github.io/posts/2023-10/02-slice_func/ - </description>
         </item>
     
     
     
         <item>
         <title>第一篇文章</title>
-        <link>https://qch-china.github.io/posts/2023-10/02-slice-function/</link>
+        <link>https://qch-china.github.io/posts/2023-10/01-first_post/</link>
         <pubDate>Sun, 08 Oct 2023 17:16:19 +0800</pubDate>
         
-        <guid>https://qch-china.github.io/posts/2023-10/02-slice-function/</guid>
-        <description>Qch的博客空间 https://qch-china.github.io/posts/2023-10/02-slice-function/ -&lt;h2 id=&#34;新的开始&#34;&gt;新的开始&lt;/h2&gt;
+        <guid>https://qch-china.github.io/posts/2023-10/01-first_post/</guid>
+        <description>Qch的博客空间 https://qch-china.github.io/posts/2023-10/01-first_post/ -&lt;h2 id=&#34;新的开始&#34;&gt;新的开始&lt;/h2&gt;
 &lt;p&gt;第一篇文章，一个好开始&lt;/p&gt;
 &lt;p&gt;希望自己能坚持，养成经常写博客的习惯&lt;/p&gt;
 &lt;h2 id=&#34;共勉&#34;&gt;共勉&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;images/persist_in.jpg&#34; alt=&#34;avatar&#34;&gt;&lt;/p&gt;
-- https://qch-china.github.io/posts/2023-10/02-slice-function/ - </description>
+- https://qch-china.github.io/posts/2023-10/01-first_post/ - </description>
         </item>
     
     
