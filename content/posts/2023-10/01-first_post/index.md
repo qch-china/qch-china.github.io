@@ -14,3 +14,4 @@ comment : false
 
 ## 共勉
 ![avatar](images/persist_in.jpg)
+
