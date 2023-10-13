@@ -1,0 +1,14 @@
+enableGitalk = true
+[params.gitalk]
+  owner = "user"
+  repo = "repo name"
+  client_id = "75efb952310e00a74752"
+  client_secret = "7052094983fc3eb67a1bb9e914f75bc52af15b40"
+
+[taxonomies]
+   tag = "tags"
+   category = "categories"
+
+
+
+
